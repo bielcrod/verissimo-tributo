@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tributo a Luis Fernando Verissimo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Variáveis de cores */
+        :root {
+            --bege: #f5f1e6;
+            --bege-escuro: #e8e1cf;
+            --branco: #ffffff;
+            --cinza: #6c757d;
+            --cinza-escuro: #343a40;
+            --azul: #2d5f8b;
+            --verde: #4cb5f5;
+            --sombra: rgba(0, 0, 0, 0.1);
+            --vermelho: #e74c3c;
+        }
+        
+        /* Reset e estilos base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bege);
+            color: var(--cinza-escuro);
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            color: var(--cinza-escuro);
+            margin-bottom: 1rem;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+        }
+        
+        a {
+            color: var(--azul);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        a:hover {
+            color: var(--verde);
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        /* Header */
+        header {
+            background-color: var(--branco);
+            box-shadow: 0 2px 10px var(--sombra);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+        }
+        
+        .logo {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: 1.5rem;
+            color: var(--azul);
+            font-weight: bold;
+        }
+        
+        .nav-toggle {
+            display: block;
+            font-size: 1.5rem;
+            background: none;
+            border: none;
+            color: var(--azul);
+            cursor: pointer;
+        }
+        
+        /* Botão Voltar */
+        .voltar-btn {
+            background-color: var(--vermelho);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            margin-right: 1rem;
+            transition: background-color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .voltar-btn:hover {
+            background-color: #c0392b;
+        }
+        
+        nav {
+            position: fixed;
+            top: 60px;
+            left: -100%;
+            width: 80%;
+            height: calc(100vh - 60px);
+            background-color: var(--branco);
+            box-shadow: 2px 0 10px var(--sombra);
+            transition: left 0.3s ease;
+            z-index: 99;
+            overflow-y: auto;
+        }
+        
+        nav.active {
+            left: 0;
+            transition: left 0.3s ease;
+        }
+        
+        nav ul {
+            list-style: none;
+            padding: 1rem;
+        }
+        
+        nav ul li {
+            margin-bottom: 1rem;
+        }
+        
+        nav ul li a {
+            display: block;
+            padding: 0.5rem 0;
+            font-weight: 500;
+            border-bottom: 1px solid var(--bege-escuro);
+        }
+        
+        /* Banner */
+        .banner {
+            position: relative;
+            height: 60vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)), url('https://upload.wikimedia.org/wikipedia/commons/5/55/Luis_Fernando_Ver%C3%ADssimo_%2841536673300%29.jpg');
+            background-size: cover;
+            background-position: center 30%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--branco);
+            padding: 1rem;
+        }
+        
+        .banner-content {
+            max-width: 800px;
+        }
+        
+        .banner h1 {
+            font-size: 2.5rem;
+            color: var(--branco);
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+        
+        .banner p {
+            font-size: 1.2rem;
+            font-style: italic;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+        }
+        
+        /* Seções */
+        section {
+            padding: 3rem 1rem;
+        }
+        
+        section:nth-child(even) {
+            background-color: var(--branco);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--azul);
+            margin: 0.5rem auto;
+        }
+        
+        /* Biografia */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .timeline:before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            width: 2px;
+            height: 100%;
+            background-color: var(--azul);
+            transform: translateX(-50%);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+            width: 100%;
+        }
+        
+        .timeline-content {
+            position: relative;
+            background-color: var(--branco);
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 3px 10px var(--sombra);
+            width: calc(50% - 20px);
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-left: auto;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-right: auto;
+        }
+        
+        .timeline-year {
+            position: absolute;
+            top: 10px;
+            width: 60px;
+            height: 60px;
+            background-color: var(--azul);
+            color: var(--branco);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            z-index: 1;
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-year {
+            left: -80px;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-year {
+            right: -80px;
+        }
+        
+        /* Obras */
+        .obras-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .obra-card {
+            background-color: var(--branco);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px var(--sombra);
+            transition: transform 0.3s;
+        }
+        
+        .obra-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .obra-capa {
+            height: 200px;
+            background-color: var(--bege-escuro);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .obra-capa i {
+            font-size: 3rem;
+            color: var(--cinza);
+        }
+        
+        .obra-info {
+            padding: 1rem;
+        }
+        
+        .obra-titulo {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        .obra-ano {
+            color: var(--cinza);
+            font-size: 0.9rem;
+        }
+        
+        /* Crônicas */
+        .cronica-card {
+            background-color: var(--branco);
+            border-left: 4px solid var(--azul);
+            border-radius: 4px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 3px 10px var(--sombra);
+        }
+        
+        .cronica-texto {
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+        
+        .cronica-fonte {
+            text-align: right;
+            color: var(--cinza);
+            font-size: 0.9rem;
+        }
+        
+        /* Curiosidades */
+        .curiosidades-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+        
+        .curiosidade-card {
+            background-color: var(--branco);
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 3px 10px var(--sombra);
+        }
+        
+        .curiosidade-icon {
+            font-size: 2rem;
+            color: var(--azul);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--cinza-escuro);
+            color: var(--branco);
+            padding: 3rem 1rem;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .footer-quote {
+            font-style: italic;
+            margin-bottom: 2rem;
+            padding: 0 1rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-links a {
+            color: var(--branco);
+        }
+        
+        .footer-copyright {
+            color: var(--cinza);
+            font-size: 0.9rem;
+        }
+        
+        /* Botões */
+        .btn {
+            display: inline-block;
+            background-color: var(--azul);
+            color: var(--branco);
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            font-weight: 500;
+            transition: background-color 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: var(--verde);
+            color: var(--branco);
+        }
+        
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .timeline:before {
+                left: 20px;
+            }
+            
+            .timeline-content {
+                width: calc(100% - 60px);
+                margin-left: 60px !important;
+            }
+            
+            .timeline-year {
+                left: -40px !important;
+                right: auto !important;
+            }
+            
+            .obras-grid {
+                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            }
+            
+            .banner h1 {
+                font-size: 2rem;
+            }
+            
+            .banner p {
+                font-size: 1rem;
+            }
+            
+            .voltar-btn {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.9rem;
+                margin-right: 0.5rem;
+            }
+            
+            .voltar-btn span {
+                display: none;
+            }
+            
+            .voltar-btn i {
+                margin-right: 0;
+            }
+        }
+        
+        @media (min-width: 992px) {
+            .nav-toggle {
+                display: none;
+            }
+            
+            nav {
+                position: static;
+                width: auto;
+                height: auto;
+                background: none;
+                box-shadow: none;
+                left: 0;
+            }
+            
+            nav ul {
+                display: flex;
+                padding: 0;
+            }
+            
+            nav ul li {
+                margin: 0 0 0 1.5rem;
+            }
+            
+            nav ul li a {
+                border-bottom: none;
+                padding: 0;
+            }
+            
+            .curiosidades-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .voltar-btn span {
+                display: inline;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container container">
+            <div class="logo">Tributo a Verissimo</div>
+            
+            <!-- Botão de Voltar -->
+            <button id="voltarBtn" class="voltar-btn" title="Voltar para Ache seu Livro">
+                <i class="fas fa-arrow-left"></i>
+                <span>Voltar</span>
+            </button>
+            
+            <button class="nav-toggle" id="navToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="#inicio">Início</a></li>
+                    <li><a href="#biografia">Biografia</a></li>
+                    <li><a href="#obras">Obras</a></li>
+                    <li><a href="#cronicas">Crônicas</a></li>
+                    <li><a href="#curiosidades">Curiosidades</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Banner Inicial -->
+    <section id="inicio" class="banner">
+        <div class="banner-content">
+            <h1>Luis Fernando Verissimo</h1>
+            <p>"O humor é a melhor maneira de dizer coisas sérias."</p>
+        </div>
+    </section>
+
+    <!-- Biografia -->
+    <section id="biografia">
+        <div class="container">
+            <h2 class="section-title">Biografia</h2>
+            <p>Luis Fernando Verissimo é um dos escritores e cronistas mais amados do Brasil. Nascido em Porto Alegre em 1936, filho do também escritor Érico Verissimo, construiu uma carreira brilhante como humorista, cronista, cartunista e tradutor.</p>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-year">1936</div>
+                    <div class="timeline-content">
+                        <h3>Nascimento</h3>
+                        <p>Nasceu em 26 de setembro em Porto Alegre, Rio Grande do Sul.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">1973</div>
+                    <div class="timeline-content">
+                        <h3>Primeiro Livro</h3>
+                        <p>Publicou "O Popular", seu primeiro livro de crônicas.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">1979</div>
+                    <div class="timeline-content">
+                        <h3>A Grande Família</h3>
+                        <p>Criou os personagens da "A Grande Família", que mais tarde se tornaria uma série de TV de grande sucesso.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">2005</div>
+                    <div class="timeline-content">
+                        <h3>Academia Brasileira de Letras</h3>
+                        <p>Eleito para a Academia Brasileira de Letras, ocupando a cadeira número 39.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Obras -->
+    <section id="obras">
+        <div class="container">
+            <h2 class="section-title">Obras Principais</h2>
+            <div class="obras-grid">
+                <div class="obra-card">
+                    <div class="obra-capa">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <div class="obra-info">
+                        <div class="obra-titulo">O Analista de Bagé</div>
+                        <div class="obra-ano">1981</div>
+                    </div>
+                </div>
+                
+                <div class="obra-card">
+                    <div class="obra-capa">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <div class="obra-info">
+                        <div class="obra-titulo">Comédias da Vida Privada</div>
+                        <div class="obra-ano">1994</div>
+                    </div>
+                </div>
+                
+                <div class="obra-card">
+                    <div class="obra-capa">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <div class="obra-info">
+                        <div class="obra-titulo">Ed Mort</div>
+                        <div class="obra-ano">1979</div>
+                    </div>
+                </div>
+                
+                <div class="obra-card">
+                    <div class="obra-capa">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <div class="obra-info">
+                        <div class="obra-titulo">As Mentiras que os Homens Contam</div>
+                        <div class="obra-ano">2000</div>
+                    </div>
+                </div>
+                
+                <div class="obra-card">
+                    <div class="obra-capa">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <div class="obra-info">
+                        <div class="obra-titulo">O Jardim do Diabo</div>
+                        <div class="obra-ano">2005</div>
+                    </div>
+                </div>
+                
+                <div class="obra-card">
+                    <div class="obra-capa">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <div class="obra-info">
+                        <div class="obra-titulo">Diálogos Impossíveis</div>
+                        <div class="obra-ano">2016</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Crônicas -->
+    <section id="cronicas">
+        <div class="container">
+            <h2 class="section-title">Trechos de Crônicas</h2>
+            
+            <div class="cronica-card">
+                <p class="cronica-texto">"O verdadeiro analfabeto é o que aprendeu a leer e não lê. Não há pior surdo que o que não quer ouvir. Não há pior cego que o que não quer ver. E não há pior doente que o que não quer se curar."</p>
+                <p class="cronica-fonte">- O Analista de Bagé</p>
+            </div>
+            
+            <div class="cronica-card">
+                <p class="cronica-texto">"A vida é como andar de bicicleta: para manter o equilíbrio, é preciso estar em movimento."</p>
+                <p class="cronica-fonte">- Crônica no Jornal Zero Hora</p>
+            </div>
+            
+            <div class="cronica-card">
+                <p class="cronica-texto">"O riso é o melhor remédio, mas se for de embromação, pode ser placebo. E placebos também curam, desde que você acredite neles. Ou, pelo menos, finja que acredite."</p>
+                <p class="cronica-fonte">- Comédias da Vida Privada</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Curiosidades -->
+    <section id="curiosidades">
+        <div class="container">
+            <h2 class="section-title">Curiosidades</h2>
+            
+            <div class="curiosidades-grid">
+                <div class="curiosidade-card">
+                    <div class="curiosidade-icon">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <h3>Amor pelo Jazz</h3>
+                    <p>Verissimo é um grande fã de jazz e toca saxofone. Já se apresentou em casas noturnas do Rio de Janeiro.</p>
+                </div>
+                
+                <div class="curiosidade-card">
+                    <div class="curiosidade-icon">
+                        <i class="fas fa-futbol"></i>
+                    </div>
+                    <h3>Torcedor do Inter</h3>
+                    <p>É torcedor fanático do Sport Club Internacional, time de Porto Alegre, e já escreveu várias crônicas sobre futebol.</p>
+                </div>
+                
+                <div class="curiosidade-card">
+                    <div class="curiosidade-icon">
+                        <i class="fas fa-pencil-alt"></i>
+                    </div>
+                    <h3>Cartunista</h3>
+                    <p>Além de escritor, Verissimo também é cartunista. Suas charges eram publicadas em diversos jornais do país.</p>
+                </div>
+                
+                <div class="curiosidade-card">
+                    <div class="curiosidade-icon">
+                        <i class="fas fa-globe-americas"></i>
+                    </div>
+                    <h3>Vida no Exterior</h3>
+                    <p>Passou parte da infância e adolescência nos Estados Unidos, onde seu pai, Érico Verissimo, lecionou literatura brasileira.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p class="footer-quote">"O humor é a válvula de escape para as pressões da vida. Sem ele, seríamos todos loucos."</p>
+            
+            <div class="footer-links">
+                <a href="#inicio">Início</a>
+                <a href="#biografia">Biografia</a>
+                <a href="#obras">Obras</a>
+                <a href="#cronicas">Crônicas</a>
+                <a href="#curiosidades">Curiosidades</a>
+            </div>
+            
+            <p class="footer-copyright">© 2025 Tributo a Luis Fernando Verissimo. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Menu mobile toggle
+        document.getElementById('navToggle').addEventListener('click', function() {
+            document.getElementById('mainNav').classList.toggle('active');
+        });
+        
+        // Fechar menu ao clicar em um link
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('mainNav').classList.remove('active');
+            });
+        });
+        
+        // Botão para voltar ao "Ache seu Livro"
+        document.getElementById('voltarBtn').addEventListener('click', function() {
+            // Fecha a janela/aba atual e volta para a página anterior
+            window.close();
+        });
+    </script>
+</body>
+</html>
